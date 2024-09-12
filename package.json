@@ -1,11 +1,17 @@
 {
   "name": "password-gen",
   "version": "1.0.0",
-  "description": "Code for a password generator",
+  "description": "This is code for a password generator for 8 characters for the user.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "bin": {
+    "generate-password": "./index.js"
+  },
   "author": "Victoria Breen",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^12.1.0"
+  }
 }
