@@ -2,11 +2,14 @@
 
 const process = require("node:process");
 const args = process.argv.slice(2);
-const length = 8; // Password can only be max 8 chars
+let length = 8; // Password can only be max 8 chars
+
+let includesNums = false;
+let includesSpecial = false;
+let includesUpperCase = false;
 
 function passwordGenerate(length) {
   // function to generate a random password
-  const chars = "abcdefghijklmnopqrstuvwxyz";
   let password = "";
 
   for (let i = 0; i < length; i++) {
