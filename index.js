@@ -2,11 +2,7 @@
 
 const process = require("node:process");
 const args = process.argv.slice(2);
-
-let length = 8; // Password can only be max 8 chars
-let includesNums = false;
-let includesSpecial = false;
-let includesUpperCase = false;
+const length = 8; // Password can only be max 8 chars
 
 function passwordGenerate(length, chars) {
   // function to generate a random password
@@ -40,8 +36,9 @@ function printHelpMessage() {
         --uppercase   Allow uppercase letters in the password`);
 }
 
-args.forEach((arg) => {
-  if (arg.startsWith("--length")) {
+// need to check for length
+args.forEach((args) => {
+  if (args.startsWith("--length")) {
     const len = arg.split("=")[1];
     if (!isNaN(len) && parseInt(len, 10) >= 8) {
       // at LEAST 8
