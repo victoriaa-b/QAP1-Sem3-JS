@@ -1,11 +1,12 @@
 #!/usr/bin/env node
 
+
 const process = require("node:process");
 const args = process.argv.slice(2);
-const length = 8; // Password can only be max 8 chars
+const length = 8; // default length
 
+// The Function to generate a random password
 function passwordGenerate(length, chars) {
-  // function to generate a random password
   let password = "";
 
   for (let i = 0; i < length; i++) {
@@ -15,6 +16,7 @@ function passwordGenerate(length, chars) {
   return password;
 }
 
+// A function to construct a set of chars 
 function charSet() {
   let chars = "abcdefghijklmnopqrstuvwxyz";
   if (includesNums) chars += "0123456789";
@@ -24,8 +26,9 @@ function charSet() {
   return chars;
 }
 
-function printHelpMessage() {
   // Help message for the users if needed
+function printHelpMessage() {
+
   console.log(`
     Usage:
 
@@ -36,7 +39,7 @@ function printHelpMessage() {
         --uppercase   Allow uppercase letters in the password`);
 }
 
-// need to check for length
+// Checking for length and vaild numbers
 args.forEach((args) => {
   if (args.startsWith("--length")) {
     const len = arg.split("=")[1];
@@ -46,10 +49,10 @@ args.forEach((args) => {
       length = parseInt(len, 10);
     } else {
       console.error("Error! Invaild length. Please provide a length of 1-9.");
-      process.exit(1);
+      process.exit(1); //exit the program
     }
+   // Checking for flags
   } else if (arg === "--numbers") {
-    // flags
     includesNums = true;
   } else if (arg === "--special") {
     includesSpecial = true;
@@ -61,7 +64,7 @@ args.forEach((args) => {
   } else {
     console.error("Error! Invaild argument: " + arg);
     printHelpMessage();
-    process.exit(1);
+    process.exit(1); //exits the program after the printHelpMessage is display 
   }
 });
 
